@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* =========================================== */
+body {
+  margin: 0;
+  padding: 0;
+}
+/* =========================================== */
+.container {
+  box-sizing: border-box;
+  width: 500px;
+  margin: 0 auto;
+  background-color: green;
+  /* border: 5px solid #cccccc; */
+  height: 95vh;
+}
+/* =========================================== */
+.top_part {
+  background-color: yellow;
+  height: 60px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+/* =========================================== */
+.bottom_part {
+  box-sizing: border-box;
+  background-color: brown;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 500px;
+}
+/* =========================================== */
+/* =========================================== */
+/* =========================================== */
+@media screen and (max-width:414px) {
+  .miam_container {
+    width: 100%;
+  }
+/* =========================================== */
