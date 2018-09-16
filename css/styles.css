@@ -9,32 +9,121 @@ body {
   box-sizing: border-box;
   width: 500px;
   margin: 0 auto;
-  background-color: green;
+  background-image: url("../images/felt.png");
   /* border: 5px solid #cccccc; */
-  height: 95vh;
+  height: 736px;
 }
 /* =========================================== */
 .top_part {
-  background-color: yellow;
+  box-sizing: border-box;
   height: 60px;
   position: relative;
   top: 0;
   width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 2.5em;
+  line-height: 80px;
+  font-family: minotaur;
+  color: white;
+  letter-spacing: .05em;
+  text-shadow: 2px 2px 7px black, 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 /* =========================================== */
 .bottom_part {
   box-sizing: border-box;
-  background-color: brown;
-  height: 100px;
-  position: fixed;
-  bottom: 0;
-  width: 500px;
+  overflow: hidden;
+  margin-top: 379px;
+}
+/* =========================================== */
+.bottom_part img {
+  display: block;
+  width: 700px;
+  margin-left: -100px;
+}
+/* =========================================== */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+  
+}
+/* =========================================== */
+.card1 {
+  z-index: 100;
+  margin-top: -70px;
+  margin-left: -70px;
+  transform: rotate(-10deg);
+}
+/* =========================================== */
+.card2 {
+  z-index: 101;
+  margin-top: -30px;
+  margin-left: -30px;
+  transform: rotate(30deg);
+}
+/* =========================================== */
+.card img {
+  width: 100px;
+  box-shadow: 5px 5px 20px black;
+}
+/* =========================================== */
+/* =========================================== */
+@font-face {
+  font-family: minotaur;
+  src: url("../fonts/minotaur.ttf");
 }
 /* =========================================== */
 /* =========================================== */
 /* =========================================== */
 @media screen and (max-width:414px) {
-  .miam_container {
+  .container {
     width: 100%;
+    height: 736px;
   }
+  .bottom_part img {
+    margin-left: -143px;
+  }
+}
+@media screen and (max-width:375px) {
+  .container {
+    width: 100%;
+    height: 667px;
+  }
+  .bottom_part img {
+    margin-left: -162.5px;
+  }
+  .bottom_part {
+    margin-top: 310px;
+  }
+}
+@media screen and (max-width:320px) {
+  .container {
+    width: 100%;
+    height: 568px;
+  }
+  .bottom_part img {
+    margin-left: -190px;
+  }
+  .bottom_part {
+    margin-top: 211px;
+  }
+}
 /* =========================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
