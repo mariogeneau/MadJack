@@ -42,32 +42,54 @@ body {
   margin-left: -100px;
 }
 /* =========================================== */
-.card {
-  position: absolute;
-  top: 50%;
+.player_cards {
+  position: fixed;
   left: 50%;
-  overflow: hidden;
-  border-radius: 10px;
-  
-}
-/* =========================================== */
-.card1 {
+  margin-left: -200px;
+  top: 300px;
   z-index: 100;
-  margin-top: -70px;
-  margin-left: -70px;
-  transform: rotate(-10deg);
+  width: 400px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
 }
 /* =========================================== */
-.card2 {
-  z-index: 101;
-  margin-top: -30px;
-  margin-left: -30px;
-  transform: rotate(30deg);
+.dealer_cards {
+  position: fixed;
+  left: 50%;
+  margin-left: -200px;
+  top: 100px;
+  z-index: 100;
+  width: 400px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
 }
 /* =========================================== */
-.card img {
-  width: 100px;
-  box-shadow: 5px 5px 20px black;
+.cards {
+  position: fixed;
+  display: block;
+  width: 63px;
+  margin: 5px;
+  margin-left: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+/* =========================================== */
+.player_money {
+  position: fixed;
+  left: 50%;
+  margin-left: -100px;
+  top: 420px;
+  z-index: 300;
+  width: 200px;
+  height: 30px;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-family: Verdana;
 }
 /* =========================================== */
 /* =========================================== */
@@ -86,6 +108,13 @@ body {
   .bottom_part img {
     margin-left: -143px;
   }
+  .player_cards, .dealer_cards {
+    width: 380px;
+    margin-left: -190px;
+  }
+  .cards {
+    margin-left: 5px;
+  }
 }
 @media screen and (max-width:375px) {
   .container {
@@ -98,6 +127,19 @@ body {
   .bottom_part {
     margin-top: 310px;
   }
+  .player_cards {
+    width: 340px;
+    margin-left: -170px;
+    top: 275px;
+  }
+  .dealer_cards {
+    width: 340px;
+    margin-left: -170px;
+    top: 100px;
+  }
+  .player_money {
+    top: 390px;
+  }
 }
 @media screen and (max-width:320px) {
   .container {
@@ -109,6 +151,22 @@ body {
   }
   .bottom_part {
     margin-top: 211px;
+  }
+  .player_cards {
+    width: 300px;
+    margin-left: -150px;
+    top: 240px;
+  }
+  .dealer_cards {
+    width: 300px;
+    margin-left: -150px;
+    top: 100px;
+  }
+  .cards {
+    margin-left: -3px;
+  }
+  .player_money {
+    top: 350px;
   }
 }
 /* =========================================== */
