@@ -26,14 +26,14 @@ function MadJack(player_box_id, dealer_box_id) {
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const player_card_2 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.player_box_id, player_card_2, "3", "40px");
+    this.displayCard(this.player_box_id, player_card_2, "3", "-10px");
     strip_ext = Number(player_card_2.substring(0, player_card_2.length - 5));
     this.player_hand.push(strip_ext);
     // Dealer Card 2
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const dealer_card_2 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.dealer_box_id, "back.png", "4", "40px");
+    this.displayCard(this.dealer_box_id, "back.png", "4", "-10px");
     strip_ext = Number(dealer_card_2.substring(0, dealer_card_2.length - 5));
     this.dealer_hand.push(strip_ext);
     console.log(this.player_hand);

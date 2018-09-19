@@ -46,7 +46,7 @@ body {
   position: fixed;
   left: 50%;
   margin-left: -200px;
-  top: 300px;
+  top: 220px;
   z-index: 100;
   width: 400px;
   height: 100px;
@@ -69,11 +69,10 @@ body {
 }
 /* =========================================== */
 .cards {
-  position: fixed;
-  display: block;
+  position: relative;
   width: 63px;
   margin: 5px;
-  margin-left: 300px;
+  margin-left: -10px;
   border: 1px solid rgba(0, 0, 0, 0.6);
 }
 /* =========================================== */
@@ -81,7 +80,7 @@ body {
   position: fixed;
   left: 50%;
   margin-left: -100px;
-  top: 420px;
+  top: 340px;
   z-index: 300;
   width: 200px;
   height: 30px;
@@ -89,13 +88,98 @@ body {
   color: white;
   text-align: center;
   line-height: 30px;
-  font-family: Verdana;
+  font-family: Metropolis;
+}
+/* =========================================== */
+.bet {
+  position: fixed;
+  left: 50%;
+  margin-left: -100px;
+  top: 370px;
+  z-index: 400;
+  width: 200px;
+  height: 30px;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-family: Metropolis;
+}
+/* =========================================== */
+.chips_box {
+  /* background-color: yellow; */
+  position: fixed;
+  top: 410px;
+  z-index: 500;
+  box-sizing: border-box;
+  width: 280px;
+  height: 50px;
+  left: 50%;
+  margin-left: -140px;
+}
+/* =========================================== */
+.chips {
+  display: block;
+  float: left;
+  width: 50px;
+  margin: 0 10px;
+}
+/* =========================================== */
+.buttons_box {
+  /* background-color: yellow; */
+  position: fixed;
+  top: 480px;
+  z-index: 600;
+  box-sizing: border-box;
+  width: 300px;
+  /* height: 50px; */
+  left: 50%;
+  margin-left: -150px;
+  display: none;
+}
+/* =========================================== */
+.buttons {
+  display: block;
+  float: left;
+  width: 90px;
+  margin: 0 5px;
+}
+/* =========================================== */
+.deal_button {
+  /* background-color: yellow; */
+  position: fixed;
+  top: 480px;
+  z-index: 700;
+  box-sizing: border-box;
+  width: 300px;
+  /* height: 50px; */
+  left: 50%;
+  margin-left: -150px;
+}
+/* =========================================== */
+.deal_button_img {
+  display: block;
+  width: 90px;
+  margin: 0 auto;
+}
+/* =========================================== */
+.deal_button_img:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 /* =========================================== */
 /* =========================================== */
 @font-face {
   font-family: minotaur;
   src: url("../fonts/minotaur.ttf");
+}
+@font-face {
+  font-family: overpass;
+  src: url("../fonts/overpass-semibold.otf");
+}
+@font-face {
+  font-family: Metropolis;
+  src: url("../fonts/Metropolis-Bold.otf");
 }
 /* =========================================== */
 /* =========================================== */
@@ -112,9 +196,9 @@ body {
     width: 380px;
     margin-left: -190px;
   }
-  .cards {
+  /* .cards {
     margin-left: 5px;
-  }
+  } */
 }
 @media screen and (max-width:375px) {
   .container {
@@ -130,7 +214,7 @@ body {
   .player_cards {
     width: 340px;
     margin-left: -170px;
-    top: 275px;
+    top: 220px;
   }
   .dealer_cards {
     width: 340px;
@@ -138,7 +222,10 @@ body {
     top: 100px;
   }
   .player_money {
-    top: 390px;
+    top: 340px;
+  }
+  .bet {
+    top: 370px;
   }
 }
 @media screen and (max-width:320px) {
@@ -147,7 +234,7 @@ body {
     height: 568px;
   }
   .bottom_part img {
-    margin-left: -190px;
+    display: none;
   }
   .bottom_part {
     margin-top: 211px;
@@ -155,18 +242,21 @@ body {
   .player_cards {
     width: 300px;
     margin-left: -150px;
-    top: 240px;
+    top: 220px;
   }
   .dealer_cards {
     width: 300px;
     margin-left: -150px;
     top: 100px;
   }
-  .cards {
+  /* .cards {
     margin-left: -3px;
-  }
+  } */
   .player_money {
-    top: 350px;
+    top: 340px;
+  }
+  .bet {
+    top: 370px;
   }
 }
 /* =========================================== */
