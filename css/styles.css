@@ -241,6 +241,15 @@ body {
   opacity: 0.8;
 }
 /* =========================================== */
+.chips {
+  
+}
+/* =========================================== */
+.chips:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+/* =========================================== */
 .infos {
   box-sizing: border-box;
   /* background-color: yellow; */
