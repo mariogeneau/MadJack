@@ -155,6 +155,7 @@ body {
   /* height: 50px; */
   left: 50%;
   margin-left: -150px;
+  display: none;
 }
 /* =========================================== */
 .deal_button_img {
@@ -166,6 +167,46 @@ body {
 .deal_button_img:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+/* =========================================== */
+.split_buttons {
+  /* background-color: yellow; */
+  position: fixed;
+  top: 480px;
+  z-index: 800;
+  box-sizing: border-box;
+  width: 200px;
+  /* height: 50px; */
+  left: 50%;
+  margin-left: -100px;
+  display: none;
+}
+/* =========================================== */
+.split_img {
+  display: block;
+  width: 90px;
+  float: left;
+  margin: 0 5px;
+}
+/* =========================================== */
+.insurance_buttons {
+  /* background-color: yellow; */
+  position: fixed;
+  top: 480px;
+  z-index: 900;
+  box-sizing: border-box;
+  width: 200px;
+  /* height: 50px; */
+  left: 50%;
+  margin-left: -100px;
+  display: none;
+}
+/* =========================================== */
+.insurance_img {
+  display: block;
+  width: 90px;
+  float: left;
+  margin: 0 5px;
 }
 /* =========================================== */
 /* =========================================== */

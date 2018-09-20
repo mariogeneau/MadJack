@@ -4,6 +4,7 @@ let madJack;
 $(function() {
   madJack = new MadJack("player_cards", "dealer_cards");
   addEventListeners();
+  // console.log($("#split_yes").css("height"));
 });
 // ===========================================
 const addEventListeners = () => {
