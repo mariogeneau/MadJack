@@ -1,27 +1,36 @@
 // ===========================================
 let madJack;
+let timer;
+let bet = 0;
 // ===========================================
 $(function() {
   madJack = new MadJack("player_cards", "dealer_cards");
   addEventListeners();
-  // console.log($("#split_yes").css("height"));
+  timer = setInterval(showMessage, 2000);
 });
 // ===========================================
 const addEventListeners = () => {
   $("#deal_button").click(dealButton);
+  $("#close").click(hideMessage);
 };
 // ===========================================
 const dealButton = () => {
-  $(".deal_button").css("display", "none");
-  $(".buttons_box").css("display", "block");
-  madJack.startNewHand();
+  if (bet === 0) {
+    $("#infos").text("PLEASE MAKE A BET");
+    $("#messages").animate({top: "10px"});
+  } else {
+    $(".deal_button").css("display", "none");
+    $(".buttons_box").css("display", "block");
+    madJack.startNewHand();
+  }
 };
 // ===========================================
-
-
-
-
-
-
-
-
+const showMessage = () => {
+  $("#messages").animate({top: "10px"});
+  clearInterval(timer);
+};
+// ===========================================
+const hideMessage = () => {
+  $("#messages").animate({top: "-70px"});
+};
+// ===========================================

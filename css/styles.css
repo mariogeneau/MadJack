@@ -155,7 +155,7 @@ body {
   /* height: 50px; */
   left: 50%;
   margin-left: -150px;
-  display: none;
+  /* display: none; */
 }
 /* =========================================== */
 .deal_button_img {
@@ -194,7 +194,7 @@ body {
   position: fixed;
   top: 480px;
   z-index: 900;
-  box-sizing: border-box;
+  box-sizing: border-box;±
   width: 200px;
   /* height: 50px; */
   left: 50%;
@@ -207,6 +207,49 @@ body {
   width: 90px;
   float: left;
   margin: 0 5px;
+}
+/* =========================================== */
+.message {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 300px;
+  height: 60px;
+  z-index: 900;
+  left: 50%;
+  margin-left: -150px;
+  top: -70px;
+  border-radius: 5px;
+}
+/* =========================================== */
+.close {
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 2px;
+  border: 1px solid black;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.8em;
+  line-height: 18px;
+  float: left;
+  font-family: overpass;
+}
+/* =========================================== */
+.close:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+/* =========================================== */
+.infos {
+  box-sizing: border-box;
+  /* background-color: yellow; */
+  width: 250px;
+  float: left;
+  text-align: center;
+  height: 60px;
+  padding: 5px;
+  font-family: overpass;
 }
 /* =========================================== */
 /* =========================================== */
@@ -301,18 +344,3 @@ body {
   }
 }
 /* =========================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

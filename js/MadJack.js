@@ -36,8 +36,6 @@ function MadJack(player_box_id, dealer_box_id) {
     this.displayCard(this.dealer_box_id, "back.png", "4", "-10px");
     strip_ext = Number(dealer_card_2.substring(0, dealer_card_2.length - 5));
     this.dealer_hand.push(strip_ext);
-    console.log(this.player_hand);
-    console.log(this.dealer_hand);
   }
   // ===========================================
   this.displayCard = (box_id, card_value, card_id_number, left_pos) => {
