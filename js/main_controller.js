@@ -1,10 +1,11 @@
 // ===========================================
 let madJack;
+let bet;
 let timer;
-let bet = 0;
 // ===========================================
 $(function() {
   madJack = new MadJack("player_cards", "dealer_cards");
+  bet = new Bet();
   addEventListeners();
   timer = setInterval(showMessage, 2000);
 });
@@ -15,7 +16,7 @@ const addEventListeners = () => {
 };
 // ===========================================
 const dealButton = () => {
-  if (bet === 0) {
+  if (bet.bet === 0) {
     $("#infos").text("PLEASE MAKE A BET");
     $("#messages").animate({top: "10px"});
   } else {
