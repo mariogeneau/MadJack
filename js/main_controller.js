@@ -13,6 +13,20 @@ $(function() {
 const addEventListeners = () => {
   $("#deal_button").click(dealButton);
   $("#close").click(hideMessage);
+  $("#c25").click(clickChipManagement);
+  $("#c50").click(clickChipManagement);
+  $("#c75").click(clickChipManagement);
+  $("#c100").click(clickChipManagement);
+};
+// ===========================================
+const clickChipManagement = (evt) => {
+  const i = evt.target.id;
+  const v = i.substring(1, i.length);
+  const n = Number(v);
+  if (!bet.makeBet(n, "player_money", "bet")) {
+    $("#infos").text("NOT ENOUGH MONEY");
+    showMessage();
+  }
 };
 // ===========================================
 const dealButton = () => {
