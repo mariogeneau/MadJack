@@ -1,0 +1,74 @@
+<!-- Mario Geneau -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- =========================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- ¬¬¬ -->
+    <title>MadJack</title>
+    <!-- ¬¬¬ -->
+    <!-- <link rel="shortcut icon" href="images/favicon.ico"/> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/MadJack.js"></script>
+    <script src="js/Bet.js"></script>
+    <script src="js/main_controller.js"></script>
+    <!-- ¬¬¬ -->
+  </head>
+  <!-- =========================================== -->
+  <body>
+    <div class="container">
+      <div class="top_part">
+        ° MadJack °
+      </div>
+      <div class="bottom_part">
+        <img src="images/table.png" alt="">
+      </div>
+      <div class="player_cards" id="player_cards">
+
+      </div>
+      <div class="dealer_cards" id="dealer_cards">
+
+      </div>
+      <div class="player_money" id="player_money">
+        PLAYER MONEY : $500
+      </div>
+      <div class="bet" id="bet">
+        BET : $0
+      </div>
+      <div class="chips_box">
+        <img src="images/25.png" alt="25" class="chips" id="c25">
+        <img src="images/50.png" alt="50" class="chips" id="c50">
+        <img src="images/75.png" alt="75" class="chips" id="c75">
+        <img src="images/100.png" alt="100" class="chips" id="c100">
+      </div>
+      <div class="buttons_box">
+        <img src="images/double.png" alt="double" class="buttons">
+        <img src="images/stand.png" alt="stand" class="buttons">
+        <img src="images/hit.png" alt="hit" class="buttons">
+      </div>
+      <div class="deal_button">
+        <img src="images/deal.png" alt="deal" class="deal_button_img" id="deal_button">
+      </div>
+      <div class="split_buttons">
+        <img src="images/split_yes.png" alt="split_yes" class="split_img" id="split_yes">
+        <img src="images/split_no.png" alt="split_no" class="split_img" id="split_no">
+      </div>
+      <div class="insurance_buttons">
+        <img src="images/insurance_yes.png" alt="insurance_yes" class="insurance_img" id="insurance_yes">
+        <img src="images/insurance_no.png" alt="insurance_no" class="insurance_img" id="insurance_no">
+      </div>
+      <div class="message" id="messages">
+        <div class="close" id="close">X</div>
+        <div class="infos" id="infos">
+          PLEASE MAKE A BET
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- =========================================== -->
+</html>
