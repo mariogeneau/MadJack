@@ -20,6 +20,10 @@ const addEventListeners = () => {
 };
 // ===========================================
 const clickChipManagement = (evt) => {
+  if ($(".deal_button").css("display") === "none") {
+    return;
+  }
+  hideMessage();
   const i = evt.target.id;
   const v = i.substring(1, i.length);
   const n = Number(v);
@@ -34,6 +38,7 @@ const dealButton = () => {
     $("#infos").text("PLEASE MAKE A BET");
     $("#messages").animate({top: "10px"});
   } else {
+    hideMessage();
     $(".deal_button").css("display", "none");
     $(".buttons_box").css("display", "block");
     madJack.startNewHand();
