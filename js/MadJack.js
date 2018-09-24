@@ -12,33 +12,57 @@ function MadJack(player_box_id, dealer_box_id) {
     let random_index = Math.floor(Math.random() * this.copy_deck.length);
     const player_card_1 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.player_box_id, player_card_1, "1", "20px");
+    this.displayCard(this.player_box_id, player_card_1, "1");
     let strip_ext = Number(player_card_1.substring(0, player_card_1.length - 5));
-    this.player_hand.push(strip_ext);
+    if (strip_ext > 10) {
+      this.player_hand.push(10);
+    } else if (strip_ext === 1) {
+      this.player_hand.push(11);
+    } else {
+      this.player_hand.push(strip_ext);
+    }
     // Dealer Card 1
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const dealer_card_1 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.dealer_box_id, dealer_card_1, "2", "20px");
+    this.displayCard(this.dealer_box_id, dealer_card_1, "2");
     strip_ext = Number(dealer_card_1.substring(0, dealer_card_1.length - 5));
-    this.dealer_hand.push(strip_ext);
+    if (strip_ext > 10) {
+      this.dealer_hand.push(10);
+    } else if (strip_ext === 1) {
+      this.dealer_hand.push(11);
+    } else {
+      this.dealer_hand.push(strip_ext);
+    }
     // Player Card 2
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const player_card_2 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.player_box_id, player_card_2, "3", "-10px");
+    this.displayCard(this.player_box_id, player_card_2, "3");
     strip_ext = Number(player_card_2.substring(0, player_card_2.length - 5));
-    this.player_hand.push(strip_ext);
+    if (strip_ext > 10) {
+      this.player_hand.push(10);
+    } else if (strip_ext === 1) {
+      this.player_hand.push(11);
+    } else {
+      this.player_hand.push(strip_ext);
+    }
     // Dealer Card 2
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const dealer_card_2 = this.copy_deck[random_index];
     this.copy_deck.splice(random_index, 1);
-    this.displayCard(this.dealer_box_id, "back.png", "4", "-10px");
+    this.displayCard(this.dealer_box_id, "back.png", "4");
     strip_ext = Number(dealer_card_2.substring(0, dealer_card_2.length - 5));
-    this.dealer_hand.push(strip_ext);
+    if (strip_ext > 10) {
+      this.dealer_hand.push(10);
+    } else if (strip_ext === 1) {
+      this.dealer_hand.push(11);
+    } else {
+      this.dealer_hand.push(strip_ext);
+    }
   }
   // ===========================================
-  this.displayCard = (box_id, card_value, card_id_number, left_pos) => {
+  this.displayCard = (box_id, card_value, card_id_number) => {
     const box_obj = document.getElementById(box_id);
     const card_obj = document.createElement("IMG");
     card_obj.setAttribute("src", "images/cards/" + card_value);
@@ -46,7 +70,42 @@ function MadJack(player_box_id, dealer_box_id) {
     card_obj.setAttribute("class", "cards");
     box_obj.appendChild(card_obj);
     $("#card_" + card_id_number).css("z-index", card_id_number);
-    $("#card_" + card_id_number).css("left", left_pos);
+    $("#card_" + card_id_number).css("left", "27px");
+  };
+  // ===========================================
+  this.hit = () => {
+    let random_index = Math.floor(Math.random() * this.copy_deck.length);
+    const new_card = this.copy_deck[random_index];
+    this.copy_deck.splice(random_index, 1);
+    const num = this.dealer_hand.concat(this.player_hand).length;
+    this.displayCard(this.player_box_id, new_card, (num + 1).toString());
+    let strip_ext = Number(new_card.substring(0, new_card.length - 5));
+    if (strip_ext > 10) {
+      this.player_hand.push(10);
+    } else if (strip_ext === 1) {
+      this.player_hand.push(11);
+    } else {
+      this.player_hand.push(strip_ext);
+    }
   };
   // ===========================================
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

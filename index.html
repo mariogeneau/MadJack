@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- Mario Geneau -->
     <!-- =========================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0" />
@@ -16,6 +15,7 @@
     <script src="js/jquery-ui.js"></script>
     <script src="js/MadJack.js"></script>
     <script src="js/Bet.js"></script>
+    <script src="js/Hands.js"></script>
     <script src="js/main_controller.js"></script>
     <!-- ¬¬¬ -->
   </head>
@@ -49,7 +49,7 @@
       <div class="buttons_box">
         <img src="images/double.png" alt="double" class="buttons">
         <img src="images/stand.png" alt="stand" class="buttons">
-        <img src="images/hit.png" alt="hit" class="buttons">
+        <img src="images/hit.png" alt="hit" class="buttons" id="hit">
       </div>
       <div class="deal_button">
         <img src="images/deal.png" alt="deal" class="deal_button_img" id="deal_button">
@@ -67,6 +67,9 @@
         <div class="infos" id="infos">
           PLEASE MAKE A BET
         </div>
+      </div>
+      <div class="player_hand_value" id="player_hand_value">
+        PLAYER HAND : 
       </div>
     </div>
   </body>

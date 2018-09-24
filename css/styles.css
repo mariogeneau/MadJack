@@ -259,6 +259,20 @@ body {
   font-family: overpass;
 }
 /* =========================================== */
+.player_hand_value {
+  position: fixed;
+  left: 50%;
+  margin-left: -100px;
+  top: 530px;
+  z-index: 450;
+  width: 200px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-family: Metropolis;
+}
+/* =========================================== */
 .buttons {}
 /* =========================================== */
 .buttons:hover {
