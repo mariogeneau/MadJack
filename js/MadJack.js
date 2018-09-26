@@ -94,6 +94,7 @@ function MadJack(player_box_id, dealer_box_id) {
   // ===========================================
   this.dealerHit = () => {
     let sum = this.dealer_hand.reduce((a, b) => a + b);
+    $("#player_hand_value").text(`DEALER HAND : ${this.dealer_hand.reduce((a, b) => a + b)}`);
     if (sum < 17) {
       let random_index = Math.floor(Math.random() * this.copy_deck.length);
       const new_card = this.copy_deck[random_index];
