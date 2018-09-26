@@ -5,7 +5,9 @@ function MadJack(player_box_id, dealer_box_id) {
   this.deck = ["1c.png", "1d.png", "1h.png", "1s.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "11c.png", "11d.png", "11h.png", "11s.png", "12c.png", "12d.png", "12h.png", "12s.png", "13c.png", "13d.png", "13h.png", "13s.png"];
   this.player_hand = [];
   this.dealer_hand = [];
+  this.hidden_card;
   this.copy_deck = this.deck;
+  this.hands = new Hands();
   // ===========================================
   this.startNewHand = () => {
     // Player Card 1
@@ -50,6 +52,7 @@ function MadJack(player_box_id, dealer_box_id) {
     // Dealer Card 2
     random_index = Math.floor(Math.random() * this.copy_deck.length);
     const dealer_card_2 = this.copy_deck[random_index];
+    this.hidden_card = dealer_card_2;
     this.copy_deck.splice(random_index, 1);
     this.displayCard(this.dealer_box_id, "back.png", "4");
     strip_ext = Number(dealer_card_2.substring(0, dealer_card_2.length - 5));
@@ -70,7 +73,7 @@ function MadJack(player_box_id, dealer_box_id) {
     card_obj.setAttribute("class", "cards");
     box_obj.appendChild(card_obj);
     $("#card_" + card_id_number).css("z-index", card_id_number);
-    $("#card_" + card_id_number).css("left", "27px");
+    $("#card_" + card_id_number).css("left", "47px");
   };
   // ===========================================
   this.hit = () => {
@@ -86,6 +89,33 @@ function MadJack(player_box_id, dealer_box_id) {
       this.player_hand.push(11);
     } else {
       this.player_hand.push(strip_ext);
+    }
+  };
+  // ===========================================
+  this.dealerHit = () => {
+    let sum = this.dealer_hand.reduce((a, b) => a + b);
+    if (sum < 17) {
+      let random_index = Math.floor(Math.random() * this.copy_deck.length);
+      const new_card = this.copy_deck[random_index];
+      this.copy_deck.splice(random_index, 1);
+      const num = this.dealer_hand.concat(this.player_hand).length;
+      this.displayCard(this.dealer_box_id, new_card, (num + 1).toString());
+      let strip_ext = Number(new_card.substring(0, new_card.length - 5));
+      if (strip_ext > 10) {
+        this.dealer_hand.push(10);
+      } else if (strip_ext === 1) {
+        this.dealer_hand.push(11);
+      } else {
+        this.dealer_hand.push(strip_ext);
+      }
+      this.dealerHit();
+    } else {
+      if (hands.checkBust(this.dealer_hand)) {
+        $("#messages").animate({top: "10px"});
+        $("#infos").text("DEALER BUSTED : " + hands.busted_hand);
+      } else {
+        this.dealerHit();
+      }
     }
   };
   // ===========================================

@@ -20,6 +20,7 @@ const addEventListeners = () => {
   $("#c75").click(clickChipManagement);
   $("#c100").click(clickChipManagement);
   $("#hit").click(hit);
+  $("#stand").click(stand);
 };
 // ===========================================
 const clickChipManagement = (evt) => {
@@ -66,6 +67,11 @@ const hit = () => {
     $(".buttons_box").css("display", "none");
   }
   $("#player_hand_value").text(`PLAYER HAND : ${madJack.player_hand.reduce((a, b) => a + b)}`);
+};
+// ===========================================
+const stand = () => {
+  $("#card_4").attr("src", `images/cards/${madJack.hidden_card}`);
+  madJack.dealerHit();
 };
 // ===========================================
 
