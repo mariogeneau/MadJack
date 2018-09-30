@@ -3,6 +3,7 @@ let madJack;
 let bet;
 let timer;
 let hands;
+// This is cool
 // ===========================================
 $(function() {
   madJack = new MadJack("player_cards", "dealer_cards");
@@ -74,22 +75,3 @@ const stand = () => {
   madJack.dealerHit();
 };
 // ===========================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
