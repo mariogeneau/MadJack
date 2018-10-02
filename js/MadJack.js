@@ -46,6 +46,12 @@ function MadJack(player_box_id, dealer_box_id) {
     $("#player_hand_value").text(`PLAYER : ${this.player}`);
   }
   // ===========================================
+  this.reset = () => {
+    $("#bet").text(`BET : $0`);
+    $(".deal_button").css("display", "block");
+    $(".buttons_box").css("display", "none");
+  };
+  // ===========================================
   this.analyse_player = (the_hand) => {
     const arr = this.stripHand(the_hand);
     const hand = this.returnHand(arr);
@@ -53,8 +59,8 @@ function MadJack(player_box_id, dealer_box_id) {
     if (this.checkForBust(real_hand)) {
       $("#infos").text("PLAYER LOSES");
       $("#messages").animate({top: "10px"});
-      $(".buttons_box").css("display", "none");
       $("#card_4").attr("src", `images/cards/${this.hidden_card}`);
+      this.reset();
     }
     this.player = real_hand;
   };
@@ -63,9 +69,6 @@ function MadJack(player_box_id, dealer_box_id) {
     const arr = this.stripHand(the_hand);
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
-    if (this.checkForBust(real_hand)) {
-      $(".buttons_box").css("display", "none");
-    }
     this.dealer = real_hand;
   };
   // ===========================================

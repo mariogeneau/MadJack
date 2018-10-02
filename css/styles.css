@@ -189,26 +189,6 @@ body {
   margin: 0 5px;
 }
 /* =========================================== */
-.insurance_buttons {
-  /* background-color: yellow; */
-  position: fixed;
-  top: 480px;
-  z-index: 900;
-  box-sizing: border-box;±
-  width: 200px;
-  /* height: 50px; */
-  left: 50%;
-  margin-left: -100px;
-  display: none;
-}
-/* =========================================== */
-.insurance_img {
-  display: block;
-  width: 90px;
-  float: left;
-  margin: 0 5px;
-}
-/* =========================================== */
 .message {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);

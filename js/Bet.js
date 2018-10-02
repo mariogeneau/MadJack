@@ -21,7 +21,10 @@ function Bet() {
   };
   // ===========================================
   this.analyseHand = (player_hand, dealer_hand) => {
+    $(".deal_button").css("display", "block");
+    $(".buttons_box").css("display", "none");
     if (player_hand === dealer_hand) {
+      this.stack += this.bet;
       return "PUSH";
     } else if (player_hand < dealer_hand && dealer_hand < 22) {
       return "PLAYER LOSES";
