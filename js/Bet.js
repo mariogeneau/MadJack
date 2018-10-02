@@ -1,4 +1,4 @@
-function Bet() {
+function Bet() { // B
   // ===========================================
   this.bet = 0;
   this.stack = 500;
