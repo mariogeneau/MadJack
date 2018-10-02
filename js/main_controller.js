@@ -2,12 +2,10 @@
 let madJack;
 let bet;
 let timer;
-let hands;
 // ===========================================
 $(function() {
   madJack = new MadJack("player_cards", "dealer_cards");
   bet = new Bet();
-  hands = new Hands();
   addEventListeners();
 });
 // ===========================================
@@ -64,5 +62,26 @@ const hit = () => {
 const stand = () => {
   $("#card_4").attr("src", `images/cards/${madJack.hidden_card}`);
   madJack.dealerHit();
+  const result = bet.analyseHand(madJack.player, madJack.dealer);
+  $("#infos").text(result);
+  $("#messages").animate({top: "10px"});
+  $("#player_money").text(`PLAYER MONEY : $${bet.stack}`);
+  bet.bet = 0;
+  $("#bet").text(`BET : $${bet.bet}`);
 };
 // ===========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

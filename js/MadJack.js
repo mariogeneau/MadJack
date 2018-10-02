@@ -7,7 +7,6 @@ function MadJack(player_box_id, dealer_box_id) {
   this.dealer_hand = [];
   this.hidden_card;
   this.copy_deck = this.deck;
-  this.hands = new Hands();
   this.player;
   this.dealer;
   // ===========================================
@@ -52,9 +51,10 @@ function MadJack(player_box_id, dealer_box_id) {
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
     if (this.checkForBust(real_hand)) {
+      $("#infos").text("PLAYER LOSES");
       $("#messages").animate({top: "10px"});
-      $("#infos").text("BUSTED");
       $(".buttons_box").css("display", "none");
+      $("#card_4").attr("src", `images/cards/${this.hidden_card}`);
     }
     this.player = real_hand;
   };
@@ -64,8 +64,6 @@ function MadJack(player_box_id, dealer_box_id) {
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
     if (this.checkForBust(real_hand)) {
-      $("#messages").animate({top: "10px"});
-      $("#infos").text("BUSTED");
       $(".buttons_box").css("display", "none");
     }
     this.dealer = real_hand;
@@ -150,11 +148,6 @@ function MadJack(player_box_id, dealer_box_id) {
       this.dealer_hand.push(new_card);
       this.analyse_dealer(this.dealer_hand);
       this.dealerHit();
-    } else {
-      if (hands.checkBust(this.dealer_hand)) {
-        $("#messages").animate({top: "10px"});
-        $("#infos").text("BUSTED");
-      }
     }
   };
   // ===========================================
