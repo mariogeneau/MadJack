@@ -16,10 +16,6 @@ function Bet() {
     return true;
   };
   // ===========================================
-  this.removeFromStack = () => {
-    this.stack -= this.bet;
-  };
-  // ===========================================
   this.addToStack = () => {
     this.stack += (this.bet * 2);
   };
@@ -28,7 +24,6 @@ function Bet() {
     if (player_hand === dealer_hand) {
       return "PUSH";
     } else if (player_hand < dealer_hand && dealer_hand < 22) {
-      this.removeFromStack();
       return "PLAYER LOSES";
     } else {
       this.addToStack();
