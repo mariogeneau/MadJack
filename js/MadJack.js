@@ -52,7 +52,9 @@ function MadJack(player_box_id, dealer_box_id) {
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
     if (this.checkForBust(real_hand)) {
-      alert("Busted!");
+      $("#messages").animate({top: "10px"});
+      $("#infos").text("BUSTED");
+      $(".buttons_box").css("display", "none");
     }
     this.player = real_hand;
   };
@@ -62,7 +64,9 @@ function MadJack(player_box_id, dealer_box_id) {
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
     if (this.checkForBust(real_hand)) {
-      alert("Busted!");
+      $("#messages").animate({top: "10px"});
+      $("#infos").text("BUSTED");
+      $(".buttons_box").css("display", "none");
     }
     this.dealer = real_hand;
   };
@@ -133,29 +137,23 @@ function MadJack(player_box_id, dealer_box_id) {
   };
   // ===========================================
   this.dealerHit = () => {
-    let sum = this.dealer_hand.reduce((a, b) => a + b);
-    $("#player_hand_value").text(`DEALER HAND : ${this.dealer_hand.reduce((a, b) => a + b)}`);
-    if (sum < 17) {
+    const arr = this.stripHand(this.dealer_hand);
+    const hand = this.returnHand(arr);
+    const real_hand = arr.reduce((a, b) => a + b);
+    $("#player_hand_value").text(`PLAYER : ${this.player} - DEALER : ${real_hand}`);
+    if (real_hand < 17) {
       let random_index = Math.floor(Math.random() * this.copy_deck.length);
       const new_card = this.copy_deck[random_index];
       this.copy_deck.splice(random_index, 1);
       const num = this.dealer_hand.concat(this.player_hand).length;
       this.displayCard(this.dealer_box_id, new_card, (num + 1).toString());
-      let strip_ext = Number(new_card.substring(0, new_card.length - 5));
-      if (strip_ext > 10) {
-        this.dealer_hand.push(10);
-      } else if (strip_ext === 1) {
-        this.dealer_hand.push(11);
-      } else {
-        this.dealer_hand.push(strip_ext);
-      }
+      this.dealer_hand.push(new_card);
+      this.analyse_dealer(this.dealer_hand);
       this.dealerHit();
     } else {
       if (hands.checkBust(this.dealer_hand)) {
         $("#messages").animate({top: "10px"});
-        $("#infos").text("DEALER BUSTED : " + hands.busted_hand);
-      } else {
-        this.dealerHit();
+        $("#infos").text("BUSTED");
       }
     }
   };

@@ -59,12 +59,6 @@ const hideMessage = () => {
 // ===========================================
 const hit = () => {
   madJack.hit();
-  // if (hands.checkBust(madJack.player_hand)) {
-  //   $("#messages").animate({top: "10px"});
-  //   $("#infos").text("BUSTED : " + hands.busted_hand);
-  //   $(".buttons_box").css("display", "none");
-  // }
-  // $("#player_hand_value").text(`PLAYER HAND : ${madJack.player_hand.reduce((a, b) => a + b)}`);
 };
 // ===========================================
 const stand = () => {
