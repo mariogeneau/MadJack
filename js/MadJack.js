@@ -1,6 +1,6 @@
 // ===========================================
 // 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016
-// 001, 012, 013, 015, 017, 018, 019, 020, 021, 022, 023, 024, 025, 026
+// 001, 012, 013, 015, 017, 018, 019, 020, 021, 022, 023, 024, 025, 026, 027, 028
 // ===========================================
 function MadJack(player_box_id, dealer_box_id) { // 001
   // ===========================================
@@ -39,8 +39,8 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.analyseHands = () => { // 019
-    this.analyse_player(this.player_hand); // ***
-    this.analyse_dealer(this.dealer_hand); // ***
+    this.analyse_player(this.player_hand); // 021
+    this.analyse_dealer(this.dealer_hand); // 027
   };
   // ===========================================
   this.dealStartingCards = () => { // 018
@@ -86,15 +86,29 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.analyse_player = (the_hand) => { // 021
-    const arr = this.stripHand(the_hand); // ***
-    const hand = this.returnHand(arr); // ***
-    const real_hand = arr.reduce((a, b) => a + b); // ***
+    const real_hand = this.getRealHand(the_hand);
     if (this.checkForBust(real_hand)) { // 022
       this.displayMessage("PLAYER LOSES"); // 024
       $("#card_4").attr("src", `images/cards/${this.hidden_card}`); // ***
       this.reset(); // 023
     }
     this.player = real_hand; // ***
+  };
+  // ===========================================
+  this.getRealHand = (the_hand) => {
+    const arr = this.stripHand(the_hand); // ***
+    const hand = this.returnHand(arr); // ***
+    return arr.reduce((a, b) => a + b); // ***
+  };
+  // ===========================================
+  this.checkBlackJack = (playerOrDealer) => { // 028
+    const num_of_cards = playerOrDealer.length;
+    const hand = this.getRealHand(playerOrDealer);
+    if (num_of_cards === 2 && hand === 21) {
+      return true;
+    } else {
+      return false;
+    }
   };
   // ===========================================
   this.displayMessage = (message) => { // 024
@@ -115,7 +129,7 @@ function MadJack(player_box_id, dealer_box_id) { // 001
     $(".buttons_box").css("display", "none"); // ***
   };
   // ===========================================
-  this.analyse_dealer = (the_hand) => {
+  this.analyse_dealer = (the_hand) => { // 027
     const arr = this.stripHand(the_hand);
     const hand = this.returnHand(arr);
     const real_hand = arr.reduce((a, b) => a + b);
@@ -170,7 +184,7 @@ function MadJack(player_box_id, dealer_box_id) { // 001
       const num = this.dealer_hand.concat(this.player_hand).length;
       this.displayCard(this.dealer_box_id, new_card, (num + 1).toString());
       this.dealer_hand.push(new_card);
-      this.analyse_dealer(this.dealer_hand);
+      this.analyse_dealer(this.dealer_hand); // 027
       this.dealerHit();
     }
   };

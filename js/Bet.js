@@ -16,8 +16,8 @@ function Bet() { // B
     return true;
   };
   // ===========================================
-  this.addToStack = () => {
-    this.stack += (this.bet * 2);
+  this.addToStack = (amount) => {
+    this.stack += (this.bet * amount);
   };
   // ===========================================
   this.analyseHand = (player_hand, dealer_hand) => {
@@ -29,9 +29,19 @@ function Bet() { // B
     } else if (player_hand < dealer_hand && dealer_hand < 22) {
       return "PLAYER LOSES";
     } else {
-      this.addToStack();
+      this.addToStack(2);
       return "PLAYER WINS";
     }
   };
   // ===========================================
 }
+
+
+
+
+
+
+
+
+
+

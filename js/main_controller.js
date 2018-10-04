@@ -1,5 +1,5 @@
 // ===========================================
-// 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016
+// 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016, 026
 // ===========================================
 let madJack; // 001
 let bet; // 002
@@ -33,11 +33,26 @@ const startNewGame = () => { // 010
   hideMessage(); // 005
   hideDealShowButtons(); // 011
   madJack.startNewHand(); // 012
+  if (madJack.checkBlackJack(madJack.player_hand)) {
+    playerBlackJack();
+  }
+};
+// ===========================================
+const playerBlackJack = () => {
+  displayMessage("MadJack!");
+  bet.addToStack(2.5);
+  showDealHideButtons();
+  manageMoney();
 };
 // ===========================================
 const hideDealShowButtons = () => { // 011
   $(".deal_button").css("display", "none"); // ***
   $(".buttons_box").css("display", "block"); // ***
+};
+// ===========================================
+const showDealHideButtons = () => {
+  $(".deal_button").css("display", "block"); // ***
+  $(".buttons_box").css("display", "none"); // ***
 };
 // ===========================================
 const displayMessage = (message) => { // 009
@@ -53,6 +68,8 @@ const clickChipManagement = (evt) => { // 006
   if ($(".deal_button").css("display") === "none") {
     return;
   }
+  madJack.removeCards(); // 026
+  $("#player_hand_value").text(""); // ***
   hideMessage(); // 005
   const i = evt.target.id; // ***
   const v = i.substring(1, i.length); // ***
