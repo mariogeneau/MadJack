@@ -1,6 +1,6 @@
 // ===========================================
 // 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016
-// 001, 012, 013, 015, 017, 018, 019, 020, 021, 022, 023, 024
+// 001, 012, 013, 015, 017, 018, 019, 020, 021, 022, 023, 024, 025, 026
 // ===========================================
 function MadJack(player_box_id, dealer_box_id) { // 001
   // ===========================================
@@ -15,10 +15,28 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   this.dealer; // ***
   // ===========================================
   this.startNewHand = () => { // 012
+    this.restForNewHand(); // 025
     this.dealStartingCards(); // 018
     this.analyseHands(); // 019
     $("#player_hand_value").text(`PLAYER : ${this.player}`); // ***
   }
+  // ===========================================
+  this.restForNewHand = () => { // 025
+    this.removeCards(); // 026
+    this.copy_deck = this.deck; // ***
+    this.player_hand = []; // ***
+    this.dealer_hand = []; // ***
+  };
+  // ===========================================
+  this.removeCards = () => { // 026
+    const num_of_cards_on_table = this.player_hand.concat(this.dealer_hand).length;
+    if (num_of_cards_on_table === 0) {
+      return;
+    }
+    for (let i = 1; i <= num_of_cards_on_table; i++) {
+      $(`#card_${i}`).remove();
+    }
+  };
   // ===========================================
   this.analyseHands = () => { // 019
     this.analyse_player(this.player_hand); // ***
