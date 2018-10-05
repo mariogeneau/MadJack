@@ -124,6 +124,7 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.reset = () => { // 023
+    bet.bet = 0;
     $("#bet").text(`BET : $0`); // ***
     $(".deal_button").css("display", "block"); // ***
     $(".buttons_box").css("display", "none"); // ***
