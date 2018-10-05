@@ -6,11 +6,10 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   // ===========================================
   this.player_box_id = player_box_id; // ***
   this.dealer_box_id = dealer_box_id; // ***
-  this.deck = ["ec.png", "ed.png", "eh.png", "es.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "t11c.png", "t11d.png", "t11h.png", "t11s.png", "t12c.png", "t12d.png", "t12h.png", "t12s.png", "t13c.png", "t13d.png", "t13h.png", "t13s.png"]; 
   this.player_hand = []; // ***
   this.dealer_hand = []; // ***
   this.hidden_card; // ***
-  this.copy_deck = this.deck; // ***
+  this.deck = ["ec.png", "ed.png", "eh.png", "es.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "t11c.png", "t11d.png", "t11h.png", "t11s.png", "t12c.png", "t12d.png", "t12h.png", "t12s.png", "t13c.png", "t13d.png", "t13h.png", "t13s.png"]; 
   this.player; // ***
   this.dealer; // ***
   // ===========================================
@@ -23,7 +22,7 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   // ===========================================
   this.restForNewHand = () => { // 025
     this.removeCards(); // 026
-    this.copy_deck = this.deck; // ***
+    this.deck = ["ec.png", "ed.png", "eh.png", "es.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "t11c.png", "t11d.png", "t11h.png", "t11s.png", "t12c.png", "t12d.png", "t12h.png", "t12s.png", "t13c.png", "t13d.png", "t13h.png", "t13s.png"]; 
     this.player_hand = []; // ***
     this.dealer_hand = []; // ***
   };
@@ -51,9 +50,9 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.getCard = (box_id, hand, zindex, hiddenCard) => {  // 017
-    let random_index = Math.floor(Math.random() * this.copy_deck.length);  // ***
-    const card = this.copy_deck[random_index]; // ***
-    this.copy_deck.splice(random_index, 1); // ***
+    let random_index = Math.floor(Math.random() * this.deck.length);  // ***
+    const card = this.deck[random_index]; // ***
+    this.deck.splice(random_index, 1); // ***
     if (hiddenCard) {
       this.hidden_card = card; // ***
       this.displayCard(box_id, "back.png", zindex); // 020
@@ -75,9 +74,9 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.hit = () => { // 013
-    let random_index = Math.floor(Math.random() * this.copy_deck.length); // ***
-    const new_card = this.copy_deck[random_index]; // ***
-    this.copy_deck.splice(random_index, 1); // ***
+    let random_index = Math.floor(Math.random() * this.deck.length); // ***
+    const new_card = this.deck[random_index]; // ***
+    this.deck.splice(random_index, 1); // ***
     const num = this.dealer_hand.concat(this.player_hand).length; // ***
     this.displayCard(this.player_box_id, new_card, (num + 1).toString()); // 020
     this.player_hand.push(new_card); // ***
@@ -124,6 +123,7 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.reset = () => { // 023
+    this.deck = ["ec.png", "ed.png", "eh.png", "es.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "t11c.png", "t11d.png", "t11h.png", "t11s.png", "t12c.png", "t12d.png", "t12h.png", "t12s.png", "t13c.png", "t13d.png", "t13h.png", "t13s.png"]; 
     bet.bet = 0;
     $("#bet").text(`BET : $0`); // ***
     $(".deal_button").css("display", "block"); // ***
@@ -179,9 +179,9 @@ function MadJack(player_box_id, dealer_box_id) { // 001
     const real_hand = arr.reduce((a, b) => a + b);
     $("#player_hand_value").text(`PLAYER : ${this.player} - DEALER : ${real_hand}`);
     if (real_hand < 17) {
-      let random_index = Math.floor(Math.random() * this.copy_deck.length);
-      const new_card = this.copy_deck[random_index];
-      this.copy_deck.splice(random_index, 1);
+      let random_index = Math.floor(Math.random() * this.deck.length);
+      const new_card = this.deck[random_index];
+      this.deck.splice(random_index, 1);
       const num = this.dealer_hand.concat(this.player_hand).length;
       this.displayCard(this.dealer_box_id, new_card, (num + 1).toString());
       this.dealer_hand.push(new_card);
