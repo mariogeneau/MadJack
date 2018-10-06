@@ -6,9 +6,11 @@ body {
 }
 /* =========================================== */
 .container {
+  position: fixed;
   box-sizing: border-box;
   width: 500px;
-  margin: 0 auto;
+  left: 50%;
+  margin-left: -250px;
   background-image: url("../images/felt.png");
   /* border: 5px solid #cccccc; */
   height: 736px;
@@ -279,6 +281,7 @@ body {
 @media screen and (max-width:414px) {
   .container {
     width: 100%;
+    margin-left: -207px;
     height: 736px;
   }
   .bottom_part img {
@@ -295,6 +298,7 @@ body {
 @media screen and (max-width:375px) {
   .container {
     width: 100%;
+    margin-left: -187.5px;
     height: 667px;
     overflow: hidden;
   }
@@ -326,6 +330,7 @@ body {
 @media screen and (max-width:320px) {
   .container {
     width: 100%;
+    margin-left: -160px;
     height: 568px;
   }
   .bottom_part img {

@@ -29,6 +29,8 @@ const tryDouble = () => { // 029
     madJack.hit(); // 013
     if (madJack.player <= 21) {
       stand();
+    } else {
+      bet.bet = 0;
     }
   } else {
     displayMessage("NOT ENOUGH MONEY");
@@ -96,6 +98,9 @@ const clickChipManagement = (evt) => { // 006
 // ===========================================
 const hit = () => { // 007
   madJack.hit(); // 013
+  if ($("#infos").text() === "PLAYER LOSES") {
+    bet.bet = 0;
+  }
 };
 // ===========================================
 const stand = () => { // 008
