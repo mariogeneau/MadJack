@@ -16,6 +16,18 @@ function Bet() { // B
     return true;
   };
   // ===========================================
+  this.tryDouble = (stack_id, bet_id) => {
+    const temp_bet = this.bet;
+    const temp_stack = this.stack;
+    const try_operation = temp_stack - temp_bet;
+    if (try_operation < 0) {
+      return false;
+    }
+    this.stack -= this.bet;
+    this.bet *= 2;
+    return true;
+  };
+  // ===========================================
   this.addToStack = (amount) => {
     this.stack += (this.bet * amount);
   };

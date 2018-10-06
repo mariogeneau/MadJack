@@ -1,5 +1,5 @@
 // ===========================================
-// 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016, 026
+// 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015, 016, 026, 029
 // ===========================================
 let madJack; // 001
 let bet; // 002
@@ -19,6 +19,20 @@ const addEventListeners = () => {  // 003
   $("#c100").click(clickChipManagement); // 006
   $("#hit").click(hit); // 007
   $("#stand").click(stand); // 008
+  $("#double").click(tryDouble); // 029
+};
+// ===========================================
+const tryDouble = () => { // 029
+  if (bet.tryDouble("player_money", "bet")) {
+    $("#player_money").text(`PLAYER MONEY : $${bet.stack}`); // ***
+    $("#bet").text(`BET : $${bet.bet}`); // ***
+    madJack.hit(); // 013
+    if (madJack.player <= 21) {
+      stand();
+    }
+  } else {
+    displayMessage("NOT ENOUGH MONEY");
+  }
 };
 // ===========================================
 const dealButton = () => { // 004
@@ -40,9 +54,10 @@ const startNewGame = () => { // 010
 // ===========================================
 const playerBlackJack = () => {
   displayMessage("MadJack!");
-  bet.addToStack(2.5);
+  bet.addToStack(3);
   showDealHideButtons();
   manageMoney();
+  $("#card_4").attr("src", `images/cards/${madJack.hidden_card}`); // ***
 };
 // ===========================================
 const hideDealShowButtons = () => { // 011
@@ -56,7 +71,7 @@ const showDealHideButtons = () => {
 };
 // ===========================================
 const displayMessage = (message) => { // 009
-  $("#infos").text(message); // ***
+  $("#infos").html(message); // ***
   $("#messages").animate({top: "10px"}); // ***
 };
 // ===========================================
@@ -75,8 +90,7 @@ const clickChipManagement = (evt) => { // 006
   const v = i.substring(1, i.length); // ***
   const n = Number(v); // ***
   if (!bet.makeBet(n, "player_money", "bet")) {
-    $("#infos").text("NOT ENOUGH MONEY"); // ***
-    $("#messages").animate({top: "10px"}); // ***
+    displayMessage("NOT ENOUGH MONEY");
   }
 };
 // ===========================================
@@ -90,6 +104,15 @@ const stand = () => { // 008
   const result = bet.analyseHand(madJack.player, madJack.dealer); // 016
   displayMessage(result); // 009
   manageMoney(); // 014
+  doesPlayerStillHaveMoney();
+};
+// ===========================================
+const doesPlayerStillHaveMoney = () => {
+  if (bet.stack === 0) {
+    displayMessage("GAME OVER<br><a href='index.html'>NEW GAME</a>");
+    $("#bet").text("BET : $0");
+    $(".deal_button").css("display", "none");
+  }
 };
 // ===========================================
 const manageMoney = () => { // 014

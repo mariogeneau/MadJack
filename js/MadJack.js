@@ -123,8 +123,15 @@ function MadJack(player_box_id, dealer_box_id) { // 001
   };
   // ===========================================
   this.reset = () => { // 023
+    const the_stack = $("#player_money").text();
+    if (the_stack === "PLAYER MONEY : $0") {
+      $("#infos").html("GAME OVER<br><a href='index.html'>NEW GAME</a>"); // ***
+      $("#messages").animate({top: "10px"}); // ***
+      $("#bet").text("BET : $0");
+      $(".buttons_box").css("display", "none");
+      return;
+    }
     this.deck = ["ec.png", "ed.png", "eh.png", "es.png", "2c.png", "2d.png", "2h.png", "2s.png", "3c.png", "3d.png", "3h.png", "3s.png", "4c.png", "4d.png", "4h.png", "4s.png", "5c.png", "5d.png", "5h.png", "5s.png", "6c.png", "6d.png", "6h.png", "6s.png", "7c.png", "7d.png", "7h.png", "7s.png", "8c.png", "8d.png", "8h.png", "8s.png", "9c.png", "9d.png", "9h.png", "9s.png", "10c.png", "10d.png", "10h.png", "10s.png", "t11c.png", "t11d.png", "t11h.png", "t11s.png", "t12c.png", "t12d.png", "t12h.png", "t12s.png", "t13c.png", "t13d.png", "t13h.png", "t13s.png"]; 
-    bet.bet = 0;
     $("#bet").text(`BET : $0`); // ***
     $(".deal_button").css("display", "block"); // ***
     $(".buttons_box").css("display", "none"); // ***
